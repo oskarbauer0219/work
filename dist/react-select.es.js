@@ -1,19 +1,13 @@
-(function (global, factory) {
-	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('react'), require('prop-types'), require('react-dom'), require('react-input-autosize'), require('classnames')) :
-	typeof define === 'function' && define.amd ? define(['react', 'prop-types', 'react-dom', 'react-input-autosize', 'classnames'], factory) :
-	(global.Select = factory(global.React,global.PropTypes,global.ReactDOM,global.AutosizeInput,global.classNames));
-}(this, (function (React,PropTypes,ReactDOM,AutosizeInput,classNames) { 'use strict';
-
-var React__default = 'default' in React ? React['default'] : React;
-PropTypes = PropTypes && PropTypes.hasOwnProperty('default') ? PropTypes['default'] : PropTypes;
-ReactDOM = ReactDOM && ReactDOM.hasOwnProperty('default') ? ReactDOM['default'] : ReactDOM;
-AutosizeInput = AutosizeInput && AutosizeInput.hasOwnProperty('default') ? AutosizeInput['default'] : AutosizeInput;
-classNames = classNames && classNames.hasOwnProperty('default') ? classNames['default'] : classNames;
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import ReactDOM from 'react-dom';
+import AutosizeInput from 'react-input-autosize';
+import classNames from 'classnames';
 
 function arrowRenderer(_ref) {
 	var onMouseDown = _ref.onMouseDown;
 
-	return React__default.createElement('span', {
+	return React.createElement('span', {
 		className: 'Select-arrow',
 		onMouseDown: onMouseDown
 	});
@@ -91,7 +85,7 @@ function menuRenderer(_ref) {
 			'is-disabled': option.disabled
 		});
 
-		return React__default.createElement(
+		return React.createElement(
 			Option,
 			{
 				className: optionClass,
@@ -114,7 +108,7 @@ function menuRenderer(_ref) {
 }
 
 function clearRenderer() {
-	return React__default.createElement('span', {
+	return React.createElement('span', {
 		className: 'Select-clear',
 		dangerouslySetInnerHTML: { __html: '&times;' }
 	});
@@ -460,13 +454,13 @@ var Option = function (_React$Component) {
 
 			var className = classNames(this.props.className, option.className);
 
-			return option.disabled ? React__default.createElement(
+			return option.disabled ? React.createElement(
 				'div',
 				{ className: className,
 					onMouseDown: this.blockEvent,
 					onClick: this.blockEvent },
 				this.props.children
-			) : React__default.createElement(
+			) : React.createElement(
 				'div',
 				{ className: className,
 					style: option.style,
@@ -484,7 +478,7 @@ var Option = function (_React$Component) {
 		}
 	}]);
 	return Option;
-}(React__default.Component);
+}(React.Component);
 
 
 
@@ -566,7 +560,7 @@ var Value = function (_React$Component) {
 		key: 'renderRemoveIcon',
 		value: function renderRemoveIcon() {
 			if (this.props.disabled || !this.props.onRemove) return;
-			return React__default.createElement(
+			return React.createElement(
 				'span',
 				{ className: 'Select-value-icon',
 					'aria-hidden': 'true',
@@ -581,11 +575,11 @@ var Value = function (_React$Component) {
 		key: 'renderLabel',
 		value: function renderLabel() {
 			var className = 'Select-value-label';
-			return this.props.onClick || this.props.value.href ? React__default.createElement(
+			return this.props.onClick || this.props.value.href ? React.createElement(
 				'a',
 				{ className: className, href: this.props.value.href, target: this.props.value.target, onMouseDown: this.handleMouseDown, onTouchEnd: this.handleMouseDown },
 				this.props.children
-			) : React__default.createElement(
+			) : React.createElement(
 				'span',
 				{ className: className, role: 'option', 'aria-selected': 'true', id: this.props.id },
 				this.props.children
@@ -594,7 +588,7 @@ var Value = function (_React$Component) {
 	}, {
 		key: 'render',
 		value: function render() {
-			return React__default.createElement(
+			return React.createElement(
 				'div',
 				{ className: classNames('Select-value', this.props.value.className),
 					style: this.props.value.style,
@@ -606,7 +600,7 @@ var Value = function (_React$Component) {
 		}
 	}]);
 	return Value;
-}(React__default.Component);
+}(React.Component);
 
 
 
@@ -1367,10 +1361,10 @@ var Select$1 = function (_React$Component) {
 		key: 'renderLoading',
 		value: function renderLoading() {
 			if (!this.props.isLoading) return;
-			return React__default.createElement(
+			return React.createElement(
 				'span',
 				{ className: 'Select-loading-zone', 'aria-hidden': 'true' },
-				React__default.createElement('span', { className: 'Select-loading' })
+				React.createElement('span', { className: 'Select-loading' })
 			);
 		}
 	}, {
@@ -1381,7 +1375,7 @@ var Select$1 = function (_React$Component) {
 			var renderLabel = this.props.valueRenderer || this.getOptionLabel;
 			var ValueComponent = this.props.valueComponent;
 			if (!valueArray.length) {
-				return !this.state.inputValue ? React__default.createElement(
+				return !this.state.inputValue ? React.createElement(
 					'div',
 					{ className: 'Select-placeholder' },
 					this.props.placeholder
@@ -1390,7 +1384,7 @@ var Select$1 = function (_React$Component) {
 			var onClick = this.props.onValueClick ? this.handleValueClick : null;
 			if (this.props.multi) {
 				return valueArray.map(function (value, i) {
-					return React__default.createElement(
+					return React.createElement(
 						ValueComponent,
 						{
 							id: _this5._instancePrefix + '-value-' + i,
@@ -1402,7 +1396,7 @@ var Select$1 = function (_React$Component) {
 							value: value
 						},
 						renderLabel(value, i),
-						React__default.createElement(
+						React.createElement(
 							'span',
 							{ className: 'Select-aria-only' },
 							'\xA0'
@@ -1411,7 +1405,7 @@ var Select$1 = function (_React$Component) {
 				});
 			} else if (!this.state.inputValue) {
 				if (isOpen) onClick = null;
-				return React__default.createElement(
+				return React.createElement(
 					ValueComponent,
 					{
 						id: this._instancePrefix + '-value-item',
@@ -1468,7 +1462,7 @@ var Select$1 = function (_React$Component) {
 
 				var _ariaOwns = classNames(defineProperty({}, this._instancePrefix + '-list', isOpen));
 
-				return React__default.createElement('div', _extends({}, divProps, {
+				return React.createElement('div', _extends({}, divProps, {
 					role: 'combobox',
 					'aria-expanded': isOpen,
 					'aria-owns': _ariaOwns,
@@ -1485,12 +1479,12 @@ var Select$1 = function (_React$Component) {
 			}
 
 			if (this.props.autosize) {
-				return React__default.createElement(AutosizeInput, _extends({}, inputProps, { minWidth: '5' }));
+				return React.createElement(AutosizeInput, _extends({}, inputProps, { minWidth: '5' }));
 			}
-			return React__default.createElement(
+			return React.createElement(
 				'div',
 				{ className: className },
-				React__default.createElement('input', inputProps)
+				React.createElement('input', inputProps)
 			);
 		}
 	}, {
@@ -1499,7 +1493,7 @@ var Select$1 = function (_React$Component) {
 			if (!this.props.clearable || this.props.value === undefined || this.props.value === null || this.props.multi && !this.props.value.length || this.props.disabled || this.props.isLoading) return;
 			var clear = this.props.clearRenderer();
 
-			return React__default.createElement(
+			return React.createElement(
 				'span',
 				{ className: 'Select-clear-zone', title: this.props.multi ? this.props.clearAllText : this.props.clearValueText,
 					'aria-label': this.props.multi ? this.props.clearAllText : this.props.clearValueText,
@@ -1518,7 +1512,7 @@ var Select$1 = function (_React$Component) {
 			var isOpen = this.state.isOpen;
 			var arrow = this.props.arrowRenderer({ onMouseDown: onMouseDown, isOpen: isOpen });
 
-			return React__default.createElement(
+			return React.createElement(
 				'span',
 				{
 					className: 'Select-arrow-zone',
@@ -1577,7 +1571,7 @@ var Select$1 = function (_React$Component) {
 					onOptionRef: this.onOptionRef
 				});
 			} else if (this.props.noResultsText) {
-				return React__default.createElement(
+				return React.createElement(
 					'div',
 					{ className: 'Select-noresults' },
 					this.props.noResultsText
@@ -1596,7 +1590,7 @@ var Select$1 = function (_React$Component) {
 				var value = valueArray.map(function (i) {
 					return stringifyValue(i[_this7.props.valueKey]);
 				}).join(this.props.delimiter);
-				return React__default.createElement('input', {
+				return React.createElement('input', {
 					type: 'hidden',
 					ref: function ref(_ref3) {
 						return _this7.value = _ref3;
@@ -1606,7 +1600,7 @@ var Select$1 = function (_React$Component) {
 					disabled: this.props.disabled });
 			}
 			return valueArray.map(function (item, index) {
-				return React__default.createElement('input', { key: 'hidden.' + index,
+				return React.createElement('input', { key: 'hidden.' + index,
 					type: 'hidden',
 					ref: 'value' + index,
 					name: _this7.props.name,
@@ -1651,12 +1645,12 @@ var Select$1 = function (_React$Component) {
 				return null;
 			}
 
-			return React__default.createElement(
+			return React.createElement(
 				'div',
 				{ ref: function ref(_ref5) {
 						return _this8.menuContainer = _ref5;
 					}, className: 'Select-menu-outer', style: this.props.menuContainerStyle },
-				React__default.createElement(
+				React.createElement(
 					'div',
 					{ ref: function ref(_ref4) {
 							return _this8.menu = _ref4;
@@ -1700,14 +1694,14 @@ var Select$1 = function (_React$Component) {
 
 			var removeMessage = null;
 			if (this.props.multi && !this.props.disabled && valueArray.length && !this.state.inputValue && this.state.isFocused && this.props.backspaceRemoves) {
-				removeMessage = React__default.createElement(
+				removeMessage = React.createElement(
 					'span',
 					{ id: this._instancePrefix + '-backspace-remove-message', className: 'Select-aria-only', 'aria-live': 'assertive' },
 					this.props.backspaceToRemoveMessage.replace('{label}', valueArray[valueArray.length - 1][this.props.labelKey])
 				);
 			}
 
-			return React__default.createElement(
+			return React.createElement(
 				'div',
 				{ ref: function ref(_ref7) {
 						return _this9.wrapper = _ref7;
@@ -1715,7 +1709,7 @@ var Select$1 = function (_React$Component) {
 					className: className,
 					style: this.props.wrapperStyle },
 				this.renderHiddenField(valueArray),
-				React__default.createElement(
+				React.createElement(
 					'div',
 					{ ref: function ref(_ref6) {
 							return _this9.control = _ref6;
@@ -1728,7 +1722,7 @@ var Select$1 = function (_React$Component) {
 						onTouchStart: this.handleTouchStart,
 						onTouchMove: this.handleTouchMove
 					},
-					React__default.createElement(
+					React.createElement(
 						'span',
 						{ className: 'Select-multi-value-wrapper', id: this._instancePrefix + '-value' },
 						this.renderValue(valueArray, isOpen),
@@ -1744,7 +1738,7 @@ var Select$1 = function (_React$Component) {
 		}
 	}]);
 	return Select;
-}(React__default.Component);
+}(React.Component);
 
 
 
@@ -2083,13 +2077,13 @@ var Async = function (_Component) {
 		}
 	}]);
 	return Async;
-}(React.Component);
+}(Component);
 
 Async.propTypes = propTypes;
 Async.defaultProps = defaultProps;
 
 function defaultChildren(props) {
-	return React__default.createElement(Select$1, props);
+	return React.createElement(Select$1, props);
 }
 
 var CreatableSelect = function (_React$Component) {
@@ -2297,12 +2291,12 @@ var CreatableSelect = function (_React$Component) {
 		}
 	}]);
 	return CreatableSelect;
-}(React__default.Component);
+}(React.Component);
 
 
 
 function defaultChildren$1(props) {
-	return React__default.createElement(Select$1, props);
+	return React.createElement(Select$1, props);
 }
 
 function isOptionUnique(_ref3) {
@@ -2442,15 +2436,15 @@ var AsyncCreatableSelect = function (_React$Component) {
 		value: function render() {
 			var _this2 = this;
 
-			return React__default.createElement(
+			return React.createElement(
 				Async,
 				this.props,
 				function (asyncProps) {
-					return React__default.createElement(
+					return React.createElement(
 						CreatableSelect,
 						_this2.props,
 						function (creatableProps) {
-							return React__default.createElement(Select$1, _extends({}, reduce(asyncProps, reduce(creatableProps, {})), {
+							return React.createElement(Select$1, _extends({}, reduce(asyncProps, reduce(creatableProps, {})), {
 								onInputChange: function onInputChange(input) {
 									creatableProps.onInputChange(input);
 									return asyncProps.onInputChange(input);
@@ -2468,18 +2462,12 @@ var AsyncCreatableSelect = function (_React$Component) {
 		}
 	}]);
 	return AsyncCreatableSelect;
-}(React__default.Component);
-
-// This file exists as an entry point for bundling our umd builds.
-// Both in rollup and in webpack, umd builds built from es6 modules are not
-// compatible with mixed imports (which exist in index.js)
-// This file does away with named imports in favor of a single export default.
+}(React.Component);
 
 Select$1.Async = Async;
 Select$1.AsyncCreatable = AsyncCreatableSelect;
 Select$1.Creatable = CreatableSelect;
 Select$1.Value = Value;
 
-return Select$1;
-
-})));
+export { Async, AsyncCreatableSelect as AsyncCreatable, CreatableSelect as Creatable, Value };
+export default Select$1;
