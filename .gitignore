@@ -1,0 +1,45 @@
+# Build
+lib
+dist
+docs/dist
+.env
+
+# Logs
+logs
+*.log
+
+# Runtime data
+pids
+*.pid
+*.seed
+
+# Coverage tools
+lib-cov
+coverage
+.nyc_output
+
+# Cypress
+cypress/videos
+cypress/screenshots
+cypress/support
+cypress/plugins
+
+# Dependency directory
+node_modules
+bower_components
+
+# Publish directory
+.publish
+
+# Editor artefacts
+.idea
+
+# Other
+.DS_Store
+.env
+package-lock.json
+
+# Notes
+.NOTES.md
+
+magical-types
