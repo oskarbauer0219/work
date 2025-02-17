@@ -32,7 +32,7 @@
     "chroma-js": "^2.4.2",
     "chrono-node": "^2.1.11",
     "clean-webpack-plugin": "^3.0.0",
-    "codesandboxer": "^0.1.1",
+    "codesandboxer": "^1.0.3",
     "fork-ts-checker-webpack-plugin": "^6.1.0",
     "html-webpack-plugin": "^3.2.0",
     "moment": "^2.29.4",
