@@ -52,7 +52,7 @@
     "dotenv": "^16.0.3",
     "eslint": "^7.18.0",
     "eslint-plugin-react": "^7.22.0",
-    "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint-plugin-react-hooks": "^5.1.0",
     "gh-pages": "^1.1.0",
     "jest": "^25.1.0",
     "jest-in-case": "^1.0.2",
